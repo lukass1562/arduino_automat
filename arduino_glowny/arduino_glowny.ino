@@ -1,8 +1,13 @@
 #include <ArduinoJson.h>
-
+#include <Ethernet.h>
+#include <SPI.h>
 #include <LiquidCrystal_I2C.h>  //biblioteka do obsługi wyswietlacza LCD
 #include <Keypad.h>             //biblioteka do obslugi klawiatury
 #include <Wire.h>  
+
+EthernetClient client;
+//wyswietlacz
+LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);
 
  //serwa
 #define SERW1 9
@@ -11,8 +16,6 @@
 #define SERW4 12
 #define CZUJ 13
 
-//wyswietlacz
-LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);
 
 //klawiatura
 const byte ROWS = 4; //four rows
